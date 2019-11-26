@@ -29,7 +29,6 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
     public void clickOnButton(WebElement webElement) {
         try {
             webElement.click();
@@ -38,7 +37,6 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
     public boolean checkIfItemDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();

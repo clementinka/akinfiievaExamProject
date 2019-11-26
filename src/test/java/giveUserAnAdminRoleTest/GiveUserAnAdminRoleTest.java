@@ -6,7 +6,7 @@ import org.junit.Test;
 public class GiveUserAnAdminRoleTest extends AbstractParentTest {
 
     @Test
-    public void giveUserAnAdminRole(){
+    public void giveUserAnAdminRole() {
         loginPage.openPage();
         loginPage.enterLogin(getAdminLogin());
         loginPage.enterPassword(getAdminPassword());
@@ -15,6 +15,7 @@ public class GiveUserAnAdminRoleTest extends AbstractParentTest {
         adminPage.clickOnUsersButton();
         usersPage.enterUserEmail(getUserValidLogin());
         usersPage.clickOnUser(getUserValidLogin());
-        
+        existingUserPage.clickDevicesTab();
+
     }
 }
