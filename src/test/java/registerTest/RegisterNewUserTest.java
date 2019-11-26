@@ -10,9 +10,9 @@ public class RegisterNewUserTest extends AbstractParentTest {
         loginPage.clickOnRegisterButton();
         registerPage.enterNewUserName("test");
         registerPage.enterNewUserLastName("test");
-        registerPage.enterNewUserEmail(getUserLogin());
-        registerPage.enterNewUserPassword(getUserPassword());
-        registerPage.confirmNewUserPassword(getUserPassword());
+        registerPage.enterNewUserEmail(getUserValidLogin());
+        registerPage.enterNewUserPassword(getUserValidPassword());
+        registerPage.confirmNewUserPassword(getUserValidPassword());
         registerPage.clickSignUpButton();
         checkExpectedResult("Confirmation message haven't appeared", registerPage.isConfirmationMessageAppeared());
     }

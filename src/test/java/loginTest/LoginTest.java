@@ -8,8 +8,8 @@ public class LoginTest extends AbstractParentTest {
     @Test
     public void ValidLogin(){
         loginPage.openPage();
-        loginPage.enterLogin(getUserLogin());
-        loginPage.enterPassword(getUserPassword());
+        loginPage.enterLogin(getUserValidLogin());
+        loginPage.enterPassword(getUserValidPassword());
         loginPage.pressLogInButton();
 
         checkExpectedResult("Greetings are not displayed", homePage.areGreetingsDisplayed());

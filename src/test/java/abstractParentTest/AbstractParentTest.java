@@ -5,9 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RegisterPage;
+import pages.*;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -16,24 +15,37 @@ public class AbstractParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected RegisterPage registerPage;
-    private String userLogin = "test@testtttt.12";
-    private String userPassword = "10101010";
+    protected AdminPage adminPage;
+    protected UsersPage usersPage;
+    protected ExistingUserPage existingUserPage;
 
-    public String getUserLogin() {
-        return userLogin;
+    private String userValidLogin = "test@testtt.tt.12";
+    private String userValidPassword = "10101010";
+    private String adminLogin = "clementine.letto@gmail.com";
+    private String adminPassword = "17uipAeRw";
+
+    public String getUserValidLogin() {
+        return userValidLogin;
     }
 
     public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
-
+        this.userValidLogin = userLogin;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getUserValidPassword() {
+        return userValidPassword;
+    }
+
+    public String getAdminLogin() {
+        return adminLogin;
+    }
+
+    public String getAdminPassword() {
+        return adminPassword;
     }
 
     @Before
-    public void setUp (){
+    public void setUp() {
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
@@ -42,13 +54,17 @@ public class AbstractParentTest {
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         registerPage = new RegisterPage(webDriver);
+        adminPage = new AdminPage(webDriver);
+        usersPage = new UsersPage(webDriver);
+        existingUserPage = new ExistingUserPage(webDriver);
     }
+
     @After
     public void tearDown() {
         webDriver.quit();
     }
 
-    protected void checkExpectedResult(String message, boolean actualResult){
+    protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
 
     }
