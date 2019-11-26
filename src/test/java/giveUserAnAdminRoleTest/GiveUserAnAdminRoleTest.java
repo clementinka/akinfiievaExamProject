@@ -2,8 +2,6 @@ package giveUserAnAdminRoleTest;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class GiveUserAnAdminRoleTest extends AbstractParentTest {
 
@@ -17,6 +15,6 @@ public class GiveUserAnAdminRoleTest extends AbstractParentTest {
         adminPage.clickOnUsersButton();
         usersPage.enterUserEmail(getUserValidLogin());
         usersPage.clickOnUser(getUserValidLogin());
-       // existingUserPage.clickRolesButton();
+        
     }
 }
