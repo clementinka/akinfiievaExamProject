@@ -24,12 +24,9 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.enterTextInToField(loginField, login);
     }
 
-
     public void openPage() {
         try {
-
             webDriver.get("https://my.hideez.com/Account/Login/?ReturnUrl=%2F");
-
         } catch (Exception e) {
             Assert.fail("Can't work with browser");
         }

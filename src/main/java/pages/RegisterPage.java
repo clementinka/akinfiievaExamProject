@@ -21,7 +21,6 @@ public class RegisterPage extends ParentPage {
     @FindBy (xpath = ".//div[@class='centerChildInparent']//button[@class='Rectangle-19']")
     private WebElement signUpButton;
 
-
     public RegisterPage(WebDriver webDriver) {
         super(webDriver);
     }

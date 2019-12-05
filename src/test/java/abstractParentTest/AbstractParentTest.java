@@ -58,8 +58,6 @@ public class AbstractParentTest {
         adminPage = new AdminPage(webDriver);
         usersPage = new UsersPage(webDriver);
         existingUserPage = new ExistingUserPage(webDriver);
-
-
     }
 
     @After

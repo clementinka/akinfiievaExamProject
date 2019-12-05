@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
-
 import java.util.concurrent.TimeUnit;
 
 public class ExistingUserPage extends ParentPage {
@@ -20,11 +19,6 @@ public class ExistingUserPage extends ParentPage {
 
     public ExistingUserPage(WebDriver webDriver) {
         super(webDriver);
-    }
-
-
-    public void clickDevicesTab() {
-        actionsWithOurElements.clickOnButton(devicesTab);
     }
 
     public void handleCurrentTab() {

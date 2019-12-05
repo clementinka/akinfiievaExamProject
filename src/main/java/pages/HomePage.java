@@ -9,7 +9,7 @@ public class HomePage extends ParentPage {
     @FindBy(xpath=".//div[@id='mainDiv']//h2[@class='cabinetLabel']")
     private WebElement item;
     @FindBy (xpath = ".//a[@class='managementSystemTwoLine']//form//button")
-    private WebElement defaulGroupButton;
+    private WebElement defaultGroupButton;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
@@ -20,6 +20,6 @@ public class HomePage extends ParentPage {
     }
 
     public void clickOnDefaultGroupButton() {
-        actionsWithOurElements.clickOnButton(defaulGroupButton);
+        actionsWithOurElements.clickOnButton(defaultGroupButton);
     }
 }
