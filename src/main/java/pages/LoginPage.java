@@ -6,42 +6,44 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
+
 public class LoginPage extends ParentPage {
     @FindBy(xpath = ".//input[@id='UserName']")
-    private WebElement loginField;
-    @FindBy(xpath = ".//input[@id='password']")
-    private WebElement passwordField;
-    @FindBy(xpath = ".//div[@id='mainFormLogin']//div[3]//button[@class='Rectangle-19 col-xs-5']")
-    private WebElement button;
-    @FindBy(xpath = ".//a[@class='register-btn col-xs-5 col-xs-offset-2']")
-    private WebElement registerNewUserButton;
+    private WebElement inputLogin;
+    @FindBy(id = "password")
+    private WebElement inputPassword;
+    @FindBy(xpath = ".//button[@class='Rectangle-19 col-xs-5']")
+    private WebElement logInButton;
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public void enterLogin(String login) {
-        actionsWithOurElements.enterTextInToField(loginField, login);
-    }
-
     public void openPage() {
+        String url = "http://my.hideez.com";
         try {
-            webDriver.get("https://my.hideez.com/Account/Login/?ReturnUrl=%2F");
+            webDriver.get(url);
         } catch (Exception e) {
             Assert.fail("Can't work with browser");
         }
     }
 
+    public void enterLogin(String login) {
+        actionsWithWebElements.inputText(inputLogin, login);
+    }
+
     public void enterPassword(String password) {
-        actionsWithOurElements.enterTextInToField(passwordField, password);
+        actionsWithWebElements.inputText(inputPassword, password);
     }
 
-    public void pressLogInButton() {
-        actionsWithOurElements.clickOnButton(button);
+    public void clickLogInButton() {
+        actionsWithWebElements.clickOnElemenet(logInButton);
     }
 
-    public void clickOnRegisterButton() {
-        actionsWithOurElements.clickOnButton(registerNewUserButton);
+    public void logInSystemWithValidCredentials(String login, String password) {
+        openPage();
+        enterLogin(login);
+        enterPassword(password);
+        clickLogInButton();
     }
 }
-
