@@ -67,4 +67,20 @@ public class ActionsWithWebElements {
             return false;
         }
     }
+
+    public boolean ifMessageContainsTextElements(WebElement message, String firstElement, String secondElement) {
+        try {
+            final String greetings = message.getText();
+            boolean isContainsFirsElement = greetings.contains(firstElement);
+            boolean isContainsSecondElement = greetings.contains(secondElement);
+            boolean state;
+            state =  isContainsFirsElement && isContainsSecondElement;
+            logger.info("If the message contains data -> " + state);
+            return state;
+        } catch (Exception e) {
+            logger.info("Can't work with data or can't parse message");
+            return false;
+        }
+    }
+
 }

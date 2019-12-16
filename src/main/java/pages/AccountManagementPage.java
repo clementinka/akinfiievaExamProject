@@ -12,8 +12,6 @@ public class AccountManagementPage extends ParentPage {
 
     Logger logger = Logger.getLogger(getClass());
 
-
-
     @FindBy(xpath = ".//div[@class='form-group'][1]//div[@class='inputCenter']//input[@class='form-control']")
     private WebElement firstNameField;
     @FindBy(xpath = ".//div[@class='form-group'][2]//div[@class='inputCenter']//input[@class='form-control']")
@@ -23,21 +21,29 @@ public class AccountManagementPage extends ParentPage {
     @FindBy(xpath = ".//h2[@class='cabinetLabel']")
     private WebElement accountName;
     @FindBy(xpath = ".//h2[@class='cabinetLabel']")
-    private WebElement someElement;
+    private WebElement textMessage;
+    @FindBy(id = "OldPassword")
+    private WebElement currentPasswordField;
+    @FindBy(id = "NewPassword")
+    private WebElement newPasswordField;
+    @FindBy(id = "ConfirmPassword")
+    private WebElement confirnNewPasswordField;
+    @FindBy(xpath = ".//button[@class='Rectangle-19']")
+    private WebElement changePasswordButton;
+    @FindBy(xpath = ".//p[@class='text-success']")
+    private WebElement messageThatPasswordChanged;
 
 
     public AccountManagementPage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public String changeFirstName(String firstName) {
+    public void changeFirstName(String firstName) {
         actionsWithWebElements.inputText(firstNameField, firstName);
-        return firstName;
     }
 
-    public String changeLastName(String lastName) {
+    public void changeLastName(String lastName) {
         actionsWithWebElements.inputText(lastNameField, lastName);
-        return lastName;
     }
 
     public void clickSaveButton() {
@@ -45,9 +51,26 @@ public class AccountManagementPage extends ParentPage {
     }
 
     public boolean checkTheName(String firstName, String lastName) {
-        final String greetings = someElement.getText();
-        boolean isContainsFirsName = greetings.contains(firstName);
-        boolean isContainsLastName = greetings.contains(lastName);
-        return isContainsFirsName && isContainsLastName;
+        return actionsWithWebElements.ifMessageContainsTextElements(textMessage, firstName, lastName);
+    }
+
+    public void enterOldPassWord(String oldPassword) {
+        actionsWithWebElements.inputText(currentPasswordField, oldPassword);
+    }
+
+    public void enterNewPassword(String newPassword) {
+        actionsWithWebElements.inputText(newPasswordField, newPassword);
+    }
+
+    public void confirmNewPassword(String newPassword) {
+        actionsWithWebElements.inputText(confirnNewPasswordField, newPassword);
+    }
+
+    public void clickChangePassword() {
+        actionsWithWebElements.clickOnElemenet(changePasswordButton);
+    }
+
+    public boolean ifMessageAppeared() {
+        return actionsWithWebElements.isElementDisplayed(messageThatPasswordChanged);
     }
 }
