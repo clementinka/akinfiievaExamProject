@@ -4,14 +4,12 @@ import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 
 public class LoginTest extends AbstractParentTest {
-
     @Test
-    public void ValidLogin(){
+    public void ValidLogin() {
         loginPage.openPage();
-        loginPage.enterLogin(getUserValidLogin());
-        loginPage.enterPassword(getUserValidPassword());
-        loginPage.pressLogInButton();
-
-        checkExpectedResult("Greetings are not displayed", homePage.areGreetingsDisplayed());
+        loginPage.enterLogin("clementine.letto@gmail.com");
+        loginPage.enterPassword("17uipAeRw");
+        loginPage.clickLogInButton();
+        checkExpectedResult("Management system is not present", homePage.ifManagementSystemDisplayed());
     }
 }

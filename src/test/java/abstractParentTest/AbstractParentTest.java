@@ -5,45 +5,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.*;
+import pages.AccountManagementPage;
+import pages.DashboardPage;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.io.File;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected RegisterPage registerPage;
-    protected AdminPage adminPage;
-    protected UsersPage usersPage;
-    protected ExistingUserPage existingUserPage;
-
-    private String userValidLogin = "test@testtt.tt.12";
-    private String userValidPassword = "10101010";
-    private String adminLogin = "clementine.letto@gmail.com";
-    private String adminPassword = "17uipAeRw";
-
-    public String getUserValidLogin() {
-        return userValidLogin;
-    }
-
-    public void setUserLogin(String userLogin) {
-        this.userValidLogin = userLogin;
-    }
-
-    public String getUserValidPassword() {
-        return userValidPassword;
-    }
-
-    public String getAdminLogin() {
-        return adminLogin;
-    }
-
-    public String getAdminPassword() {
-        return adminPassword;
-    }
+    protected DashboardPage dashboardPage;
+    protected AccountManagementPage accountManagementPage;
 
     @Before
     public void setUp() {
@@ -54,10 +29,8 @@ public class AbstractParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
-        registerPage = new RegisterPage(webDriver);
-        adminPage = new AdminPage(webDriver);
-        usersPage = new UsersPage(webDriver);
-        existingUserPage = new ExistingUserPage(webDriver);
+        dashboardPage = new DashboardPage(webDriver);
+        accountManagementPage = new AccountManagementPage(webDriver);
     }
 
     @After
@@ -67,6 +40,5 @@ public class AbstractParentTest {
 
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
-
     }
 }
