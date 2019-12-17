@@ -4,13 +4,19 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithWebElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait_10, webDriverWait_20, webDriverWait_100;
 
     public ActionsWithWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait_10 = new WebDriverWait(webDriver, 10);
+        webDriverWait_20 = new WebDriverWait(webDriver, 20);
+        webDriverWait_100 = new WebDriverWait(webDriver, 100);
     }
 
 
@@ -31,6 +37,17 @@ public class ActionsWithWebElements {
 
     public void clickOnElemenet(WebElement elementForClick) {
         try {
+            webDriverWait_100.until(ExpectedConditions.elementToBeClickable(elementForClick));
+            elementForClick.click();
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void clickOnElemenet(WebElement elementForClick, WebElement elementForVisibility) {
+        try {
+            webDriverWait_100.until(ExpectedConditions.elementToBeClickable(elementForVisibility));
             elementForClick.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -74,7 +91,7 @@ public class ActionsWithWebElements {
             boolean isContainsFirsElement = greetings.contains(firstElement);
             boolean isContainsSecondElement = greetings.contains(secondElement);
             boolean state;
-            state =  isContainsFirsElement && isContainsSecondElement;
+            state = isContainsFirsElement && isContainsSecondElement;
             logger.info("If the message contains data -> " + state);
             return state;
         } catch (Exception e) {

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
 public class AdminDashboardPage extends ParentPage {
-    @FindBy(id = "usersPage")
+    @FindBy(xpath = ".//li[@class='users']//a[@id='usersPage']")
     private WebElement usersButton;
 
     public AdminDashboardPage(WebDriver webDriver) {

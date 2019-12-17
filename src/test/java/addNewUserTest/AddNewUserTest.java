@@ -3,12 +3,17 @@ package addNewUserTest;
 import abstractParentTest.AbstractParentTest;
 import libs.Utils;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class AddNewUserTest extends AbstractParentTest {
-    private final String newUserEmail = "testuser@gmail.com"+ Utils.getDateAndTimeFormated();
+    private final String newUserEmail = "testuser" + Utils.getDateAndTimeFormated()+"@gmail.com";
+    WebDriver webDriver;
+
     @Test
-    public void inviteNewUser(){
-        loginPage.logInSystemWithValidCredentials(adminLogin,adminPassword);
+    public void inviteNewUser() {
+        loginPage.logInSystemWithValidCredentials(adminLogin, adminPassword);
         homePage.clickOnManagementButton();
         adminDashboardPage.clickUsers();
         usersPage.clickAddNewUserButton();
@@ -20,7 +25,7 @@ public class AddNewUserTest extends AbstractParentTest {
     }
 
     @Test
-    public void confirmNewUser(){
+    public void confirmNewUser() {
 
     }
 }
