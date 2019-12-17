@@ -1,7 +1,6 @@
 package accountManagementTest;
 
 import abstractParentTest.AbstractParentTest;
-import org.junit.Before;
 import org.junit.Test;
 
 public class AccountManagementTest extends AbstractParentTest {
@@ -10,7 +9,7 @@ public class AccountManagementTest extends AbstractParentTest {
     public void changeNameTest() {
         String expectedFirstName = "Alice";
         String expectedLastName = "Letto";
-        loginPage.logInSystemWithValidCredentials("clementine.letto@gmail.com", "17uipAeRw");
+        loginPage.logInSystemWithValidCredentials("clementine.letto@gmail.com", "18iopSrE");
         homePage.clickAccountManagement();
         accountManagementPage.changeFirstName(expectedFirstName);
         accountManagementPage.changeLastName(expectedLastName);
@@ -21,8 +20,8 @@ public class AccountManagementTest extends AbstractParentTest {
     @Test
     public void changePasswordTest() {
         String login = "clementine.letto@gmail.com";
-        String oldPassword = "17uipAeRw";
-        String newPassword = "18iopSrE";
+        String oldPassword = "18iopSrE";
+        String newPassword = "17uipAeRw";
         loginPage.logInSystemWithValidCredentials(login, oldPassword);
         homePage.clickAccountManagement();
         accountManagementPage.enterOldPassWord(oldPassword);
@@ -30,7 +29,5 @@ public class AccountManagementTest extends AbstractParentTest {
         accountManagementPage.confirmNewPassword(newPassword);
         accountManagementPage.clickChangePassword();
         checkExpectedResult("Changes haven't saved",accountManagementPage.ifMessageAppeared());
-
-
     }
 }

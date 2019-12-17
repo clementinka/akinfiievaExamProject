@@ -18,7 +18,7 @@ public class ActionsWithWebElements {
         try {
             fieldForInput.clear();
             fieldForInput.sendKeys(textForInput);
-            logger.info(textForInput + "was inputed");
+            logger.info(textForInput + " was inputed");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }

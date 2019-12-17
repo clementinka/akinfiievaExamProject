@@ -5,10 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AccountManagementPage;
-import pages.DashboardPage;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +14,12 @@ public class AbstractParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected DashboardPage dashboardPage;
+    protected AdminDashboardPage adminDashboardPage;
     protected AccountManagementPage accountManagementPage;
+    protected UsersPage usersPage;
+    protected CreateUserPage createUserPage;
+    protected String adminLogin = "clementine.letto@gmail.com";
+    protected String adminPassword = "18iopSrE";
 
     @Before
     public void setUp() {
@@ -29,8 +30,10 @@ public class AbstractParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
-        dashboardPage = new DashboardPage(webDriver);
+        adminDashboardPage = new AdminDashboardPage(webDriver);
         accountManagementPage = new AccountManagementPage(webDriver);
+        usersPage = new UsersPage(webDriver);
+        createUserPage = new CreateUserPage(webDriver);
     }
 
     @After
