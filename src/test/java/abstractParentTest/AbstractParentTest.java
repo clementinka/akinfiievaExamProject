@@ -19,7 +19,7 @@ public class AbstractParentTest {
     protected UsersPage usersPage;
     protected CreateUserPage createUserPage;
     protected String adminLogin = "clementine.letto@gmail.com";
-    protected String adminPassword = "18iopSrE";
+    protected String adminPassword = "17uipAeRw";
 
     @Before
     public void setUp() {

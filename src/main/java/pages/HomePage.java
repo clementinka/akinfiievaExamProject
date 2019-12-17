@@ -15,7 +15,7 @@ public class HomePage extends ParentPage {
     private WebElement accountManagementButton;
 
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver,"Home/Cabinet");
     }
 
     public boolean ifManagementSystemDisplayed() {

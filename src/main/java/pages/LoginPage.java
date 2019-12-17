@@ -16,7 +16,7 @@ public class LoginPage extends ParentPage {
     private WebElement logInButton;
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "Account/Login/?ReturnUrl=%2F");
     }
 
     public void openPage() {

@@ -9,7 +9,7 @@ public class AccountManagementTest extends AbstractParentTest {
     public void changeNameTest() {
         String expectedFirstName = "Alice";
         String expectedLastName = "Letto";
-        loginPage.logInSystemWithValidCredentials("clementine.letto@gmail.com", "18iopSrE");
+        loginPage.logInSystemWithValidCredentials(adminLogin, adminPassword);
         homePage.clickAccountManagement();
         accountManagementPage.changeFirstName(expectedFirstName);
         accountManagementPage.changeLastName(expectedLastName);
@@ -23,7 +23,9 @@ public class AccountManagementTest extends AbstractParentTest {
         String oldPassword = "18iopSrE";
         String newPassword = "17uipAeRw";
         loginPage.logInSystemWithValidCredentials(login, oldPassword);
+        homePage.checkCurrentUrl();
         homePage.clickAccountManagement();
+        accountManagementPage.checkCurrentUrl();
         accountManagementPage.enterOldPassWord(oldPassword);
         accountManagementPage.enterNewPassword(newPassword);
         accountManagementPage.confirmNewPassword(newPassword);

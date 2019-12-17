@@ -10,7 +10,7 @@ public class AdminDashboardPage extends ParentPage {
     private WebElement usersButton;
 
     public AdminDashboardPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver,"Dashboard");
     }
 
     public void clickUsers() {

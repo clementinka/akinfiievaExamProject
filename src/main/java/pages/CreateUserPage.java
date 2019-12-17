@@ -14,7 +14,7 @@ public class CreateUserPage extends ParentPage {
     private WebElement newUserMessage;
 
     public CreateUserPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver,"Users/Create");
     }
 
     public void typeUserEmail(String newUserEmail) {

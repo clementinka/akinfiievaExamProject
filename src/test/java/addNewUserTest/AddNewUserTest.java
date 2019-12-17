@@ -17,7 +17,6 @@ public class AddNewUserTest extends AbstractParentTest {
         checkExpectedResult("Message haven't appeared", createUserPage.ifMessageAppeared());
         adminDashboardPage.clickUsers();
         checkExpectedResult("User haven't appeared in base", usersPage.ifNewUserAppeared(newUserEmail));
-
     }
 
     @Test

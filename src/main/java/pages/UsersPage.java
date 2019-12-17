@@ -11,7 +11,7 @@ public class UsersPage extends ParentPage {
     private WebElement addNewUserButton;
 
     public UsersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver,"Users");
     }
 
     public void clickAddNewUserButton() {

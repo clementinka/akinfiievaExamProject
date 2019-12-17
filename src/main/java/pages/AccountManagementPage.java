@@ -35,7 +35,7 @@ public class AccountManagementPage extends ParentPage {
 
 
     public AccountManagementPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "Manage/ChangePassword");
     }
 
     public void changeFirstName(String firstName) {
