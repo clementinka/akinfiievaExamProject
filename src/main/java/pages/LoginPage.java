@@ -14,6 +14,8 @@ public class LoginPage extends ParentPage {
     private WebElement inputPassword;
     @FindBy(xpath = ".//button[@class='Rectangle-19 col-xs-5']")
     private WebElement logInButton;
+    @FindBy(xpath = ".//div[3]/a[@class='register-btn col-xs-5 col-xs-offset-2']")
+    private WebElement registrationButton;
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver, "Account/Login/?ReturnUrl=%2F");
@@ -44,6 +46,17 @@ public class LoginPage extends ParentPage {
         openPage();
         enterLogin(login);
         enterPassword(password);
+        clickLogInButton();
+    }
+
+    public void clickRegisterUser() {
+        actionsWithWebElements.clickOnElemenet(registrationButton);
+    }
+
+    public void logInWithValidUserCredentials(String userLogin, String userPassword) {
+        openPage();
+        enterLogin(userLogin);
+        enterPassword(userPassword);
         clickLogInButton();
     }
 }

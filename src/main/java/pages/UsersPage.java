@@ -6,24 +6,51 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
-import java.util.concurrent.TimeUnit;
-
 public class UsersPage extends ParentPage {
     @FindBy(xpath = ".//div[@class='content']//div[@id='SyncGrid']//div[@id='SyncGrid_toolbarItems']//ul[@class='e-ul e-horizontal'][2]//li[@id='SyncGrid_AddItem']")
     private WebElement addNewUserButton;
     @FindBy(xpath = ".//td[@class='e-rowcell e-gridtooltip e-gridellipsis'][1]")
     private WebElement elementVisible;
+    @FindBy(xpath = ".//div[@class='e-filterdiv e-searchinputdiv']//input[@id='SyncGrid_searchbar']")
+    private WebElement fieldFoeSearch;
+    @FindBy(xpath = ".//a[@class='e-searchitem e-toolbaricons e-disabletool e-icon e-searchfind']")
+    private WebElement searchButton;
+    @FindBy(xpath = ".//td[@class='e-rowcell e-gridtooltip e-gridellipsis e-lastrowcell'][1]")
+    private WebElement newUser;
+    @FindBy(xpath = ".//a[@class='e-link e-numericitem e-spacing e-default'][2]")
+    private WebElement elementInvisible;
+    @FindBy(xpath = ".//td[@class='e-rowcell e-templatecell e-selectionbackground e-active'][1]//i[@class='fa fa-check']")
+    private WebElement confirmedEmail;
 
     public UsersPage(WebDriver webDriver) {
         super(webDriver, "Users");
     }
 
     public void clickAddNewUserButton() {
-        actionsWithWebElements.clickOnElemenet(addNewUserButton, elementVisible);
+        actionsWithWebElements.clickOnElemenetVisible(addNewUserButton, elementVisible);
     }
 
     public boolean ifNewUserAppeared(String newUserEmail) {
         WebElement newUser = webDriver.findElement(By.xpath(".//*[contains(text(),'" + newUserEmail + "')]"));
         return actionsWithWebElements.isElementDisplayed(newUser);
     }
+
+    public void enterNewUserEmail(String newUserEmail) {
+        actionsWithWebElements.inputText(fieldFoeSearch,newUserEmail,elementVisible);
+    }
+
+    public void clickSearchButton() {
+        actionsWithWebElements.clickOnElemenetVisible(searchButton,elementVisible);
+    }
+
+    public void clickOnNewUser() {
+        actionsWithWebElements.clickOnElemenetInvisible(newUser, elementInvisible);
+        actionsWithWebElements.switchToNewTab();
+    }
+
+    public boolean ifUserEmailConfirmed() {
+       return actionsWithWebElements.isElementDisplayed(confirmedEmail);
+    }
+
+
 }

@@ -1,15 +1,9 @@
 package addNewUserTest;
 
 import abstractParentTest.AbstractParentTest;
-import libs.Utils;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-
-import java.util.concurrent.TimeUnit;
 
 public class AddNewUserTest extends AbstractParentTest {
-    private final String newUserEmail = "testuser" + Utils.getDateAndTimeFormated()+"@gmail.com";
-    WebDriver webDriver;
 
     @Test
     public void inviteNewUser() {
@@ -26,6 +20,14 @@ public class AddNewUserTest extends AbstractParentTest {
 
     @Test
     public void confirmNewUser() {
-
+        loginPage.logInSystemWithValidCredentials(adminLogin, adminPassword);
+        homePage.clickOnManagementButton();
+        adminDashboardPage.clickUsers();
+        usersPage.enterNewUserEmail(newUserEmail);
+        usersPage.clickSearchButton();
+        usersPage.clickOnNewUser();
+        newUserPage.clickConfirmEmail();
+        newUserPage.switchToPreviousTab();
+        checkExpectedResult("Can't confirm email",usersPage.ifUserEmailConfirmed());
     }
 }

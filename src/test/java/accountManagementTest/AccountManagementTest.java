@@ -20,8 +20,8 @@ public class AccountManagementTest extends AbstractParentTest {
     @Test
     public void changePasswordTest() {
         String login = "clementine.letto@gmail.com";
-        String oldPassword = "18iopSrE";
-        String newPassword = "17uipAeRw";
+        String oldPassword = "17uipAeRw";
+        String newPassword = "17uipAeRw17uipAeRw";
         loginPage.logInSystemWithValidCredentials(login, oldPassword);
         homePage.checkCurrentUrl();
         homePage.clickAccountManagement();

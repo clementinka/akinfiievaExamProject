@@ -57,6 +57,11 @@ public class Utils {
         return getDateAndTime("yyyy-MM-dd_HH-mm-ss");
     }
 
+    public static String getDateFormated(){
+
+        return getDateAndTime("yyyy-MM-dd");
+    }
+
     /**
      * Method returned SystemDateAndTime
      * @return

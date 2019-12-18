@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 public class ActionsWithWebElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
@@ -30,6 +32,17 @@ public class ActionsWithWebElements {
         }
     }
 
+    public void inputText(WebElement fieldForInput, String textForInput, WebElement elementForVisibility) {
+        try {
+            webDriverWait_100.until(ExpectedConditions.elementToBeClickable(elementForVisibility));
+            fieldForInput.clear();
+            fieldForInput.sendKeys(textForInput);
+            logger.info(textForInput + " was inputed");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
     private void stopTestAndPrintMessage() {
         logger.error("Can't work with element");
         Assert.fail("Can't work with element");
@@ -45,9 +58,18 @@ public class ActionsWithWebElements {
         }
     }
 
-    public void clickOnElemenet(WebElement elementForClick, WebElement elementForVisibility) {
+    public void clickOnElemenetVisible(WebElement elementForClick, WebElement elementForVisibility) {
         try {
             webDriverWait_100.until(ExpectedConditions.elementToBeClickable(elementForVisibility));
+            elementForClick.click();
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+    public void clickOnElemenetInvisible(WebElement elementForClick, WebElement elementForInvisibility) {
+        try {
+            webDriverWait_100.until(ExpectedConditions.invisibilityOf(elementForInvisibility));
             elementForClick.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -100,4 +122,15 @@ public class ActionsWithWebElements {
         }
     }
 
+    public void switchToNewTab() {
+        ArrayList<String> tabs2 = new ArrayList<String> (webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs2.get(1));
+        //webDriver.close();
+      //  webDriver.switchTo().window(tabs2.get(0));
+    }
+
+    public void switchToPreviousTab() {
+        ArrayList<String> tabs2 = new ArrayList<String> (webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs2.get(0));
+    }
 }

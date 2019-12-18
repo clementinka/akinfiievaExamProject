@@ -1,12 +1,12 @@
 package abstractParentTest;
 
+import libs.Utils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
-
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -18,8 +18,12 @@ public class AbstractParentTest {
     protected AccountManagementPage accountManagementPage;
     protected UsersPage usersPage;
     protected CreateUserPage createUserPage;
+    protected NewUserPage newUserPage;
+    protected RegisterPage registerPage;
     protected String adminLogin = "clementine.letto@gmail.com";
     protected String adminPassword = "17uipAeRw";
+    protected final String newUserEmail = "testuser" + Utils.getDateFormated()+"@gmail.com";
+    protected final String newRegisterUserEmail = "earl.greeeey."+Utils.getDateFormated()+"@gmail.com";
 
     @Before
     public void setUp() {
@@ -27,13 +31,16 @@ public class AbstractParentTest {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         adminDashboardPage = new AdminDashboardPage(webDriver);
         accountManagementPage = new AccountManagementPage(webDriver);
         usersPage = new UsersPage(webDriver);
         createUserPage = new CreateUserPage(webDriver);
+        newUserPage = new NewUserPage(webDriver);
+        registerPage = new RegisterPage(webDriver);
+
     }
 
     @After
