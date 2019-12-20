@@ -1,6 +1,6 @@
-Account Management Tests:
+-----Account Management Tests:------
 
-Change name test
+--Change name test--
 
 1. Open my.hideez.com in browser
 2. Enter clementine.letto@gmail.com in field "Login"
@@ -15,7 +15,7 @@ Change name test
 Expected result:
 Greetings message changed on "Hello, new_firstname new_lastname"
 
-Change password test
+--Change password test--
 
 1. Open my.hideez.com in browser
 2. Enter clementine.letto@gmail.com in field "Login"
@@ -30,6 +30,80 @@ Change password test
 
 Expected result:
 "Your password has been changed" message appeared
+
+-----Add New User Test-----
+
+--Invite new user--
+
+1. Open my.hideez.com in browser
+2. Enter clementine.letto@gmail.com in field "Login"
+3. Enter 17uipAeRw in field "Login"
+4. Click "Log in" button
+5. Click on "Default Group - Management system" button
+6. Click "Users"
+7. Click "Add button"
+8. Enter test.user@gmail.com
+9. Click "Invite"
+
+Expected result:
+User appeared in list of all users and message, that this user invited, appeared
+
+--Confirm Email of new user--
+1. Open my.hideez.com in browser
+2. Enter clementine.letto@gmail.com in field "Login"
+3. Enter 17uipAeRw in field "Login"
+5. Click on "Default Group - Management system" button
+6. Click "Users"
+7. Enter test.user@gmail.com in search field
+8. Click search button
+9. Click on test.user@gmail.com user
+10. In opened tab click "Confirm email"
+
+Expected result:
+Button "confirm email" will disapear
+
+-----Give user an admin role-----
+
+1. Open my.hideez.com in browser
+2. Enter clementine.letto@gmail.com in field "Login"
+3. Enter 17uipAeRw in field "Login"
+4. Click "Log in" button
+5. Click on "Default Group - Management system" button
+6. Click "Users"
+7. Enter test.user@gmail.com in search field
+8. Click search button
+9. Click on test.user@gmail.com user
+10. Click on "Roles" tab
+11. Click on Admin Role switcher
+
+Expected result: 
+Admin role switcher is green colored and message appeared, test.user@gmail.com user will see Default Group Management System button
+
+-----Login test-----
+
+1. Open my.hideez.com in browser
+2. Enter clementine.letto@gmail.com in field "Login"
+3. Enter 17uipAeRw in field "Login"
+4. Click "Log in" button
+
+Expected result:
+
+Greetings message appeared
+
+-----Register New User Test-----
+
+1. Open my.hideez.com in browser
+2. Click "Register" button
+3. Enter "Test Name" in first name field
+4. Enter "Test Surname" in last name field
+5. Enter test.user.mail@gmail.com in email field
+6. Enter "12345678" in password field
+7. Enter "12345678" in confirm password field
+8. Click "Submit" button
+
+Expected result:
+Message that user should approve his email appeared, user can login in system with this credentials
+
 
 
 
