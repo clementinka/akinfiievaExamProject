@@ -9,12 +9,21 @@ public class RegisterNewUserTest extends AbstractParentTest {
     public void registerNewValidUser() {
         loginPage.openPage();
         loginPage.clickRegisterUser();
-        registerPage.inputFirstName("Earl");
-        registerPage.inputLastName("Grey");
+        registerPage.inputFirstName("Test");
+        registerPage.inputLastName("User");
         registerPage.inputEmail(newRegisterUserEmail);
         registerPage.inputPassword("12345678");
         registerPage.confirmPassword("12345678");
         registerPage.clickSubmitButton();
         checkExpectedResult("Button submit doesn't work",registerPage.ifMessageAppeared());
+    }
+    @Test
+    public void enterWithNewCredentials(){
+        loginPage.openPage();
+        loginPage.clickLogInButton();
+        loginPage.enterLogin(newRegisterUserEmail);
+        loginPage.enterPassword("12345678");
+        loginPage.clickLogInButton();
+        checkExpectedResult("Can't enter with this credentials",homePage.areGreetingDisplayed());
     }
 }

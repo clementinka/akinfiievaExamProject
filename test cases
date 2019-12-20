@@ -1,0 +1,36 @@
+Account Management Tests:
+
+Change name test
+
+1. Open my.hideez.com in browser
+2. Enter clementine.letto@gmail.com in field "Login"
+3. Enter 17uipAeRw in field "Login"
+4. Click "Log in" button
+5. Click on "Account Management" tab
+6. Find changing name form
+7. Enter Alice in first field
+8. Enter Letto in second field
+9. Click "Save" button
+
+Expected result:
+Greetings message changed on "Hello, new_firstname new_lastname"
+
+Change password test
+
+1. Open my.hideez.com in browser
+2. Enter clementine.letto@gmail.com in field "Login"
+3. Enter 17uipAeRw in field "Login"
+4. Click "Log in" button
+5. Click on "Account Management" tab
+6. Find password changing form
+7. Enter 17uipAeRw in field "Old password"
+8. Enter 17uipAeRw17uipAeRw in field "New Password"
+9. Enter 17uipAeRw17uipAeRw in field "Confirm new password"
+10. Click "Change password"
+
+Expected result:
+"Your password has been changed" message appeared
+
+
+
+

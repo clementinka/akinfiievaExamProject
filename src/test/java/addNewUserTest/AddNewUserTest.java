@@ -27,7 +27,6 @@ public class AddNewUserTest extends AbstractParentTest {
         usersPage.clickSearchButton();
         usersPage.clickOnNewUser();
         newUserPage.clickConfirmEmail();
-        newUserPage.switchToPreviousTab();
-        checkExpectedResult("Can't confirm email",usersPage.ifUserEmailConfirmed());
+        checkExpectedResult("Can't confirm email",newUserPage.ifConfirmationButtonDisappeared());
     }
 }

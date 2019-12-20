@@ -133,4 +133,16 @@ public class ActionsWithWebElements {
         ArrayList<String> tabs2 = new ArrayList<String> (webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(0));
     }
+
+    public boolean isElementNotDisplayed(WebElement webElement) {
+        try {
+            boolean state = !(webElement.isDisplayed());
+            logger.info("Is element displayed -> " + state);
+            return state;
+        } catch (Exception e) {
+            logger.info("Is element displayed -> true");
+            return true;
+
+        }
+    }
 }

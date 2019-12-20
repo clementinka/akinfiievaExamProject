@@ -21,6 +21,8 @@ public class UsersPage extends ParentPage {
     private WebElement elementInvisible;
     @FindBy(xpath = ".//td[@class='e-rowcell e-templatecell e-selectionbackground e-active'][1]//i[@class='fa fa-check']")
     private WebElement confirmedEmail;
+    @FindBy (xpath = ".//div[@class='popup-controll']//div[@class='close1']//a[@id='close_window']")
+    private WebElement message;
 
     public UsersPage(WebDriver webDriver) {
         super(webDriver, "Users");
@@ -50,6 +52,11 @@ public class UsersPage extends ParentPage {
 
     public boolean ifUserEmailConfirmed() {
        return actionsWithWebElements.isElementDisplayed(confirmedEmail);
+    }
+
+
+    public boolean ifMessageAppeared() {
+        return actionsWithWebElements.isElementDisplayed(message);
     }
 
 

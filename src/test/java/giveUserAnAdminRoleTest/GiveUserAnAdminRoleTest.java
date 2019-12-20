@@ -15,6 +15,12 @@ public class GiveUserAnAdminRoleTest extends AbstractParentTest {
         newUserPage.clickRolesTab();
         newUserPage.clickAdminRoleSwitcher();
         newUserPage.clickSaveButton();
+        checkExpectedResult("New settings weren't saved", usersPage.ifMessageAppeared());
+    }
+    @Test
+    public void enterWithNewAdminCredentials(){
+        loginPage.logInSystemWithValidCredentials(newRegisterUserEmail,"12345678");
+        checkExpectedResult("The user is still not admin",homePage.ifManagementSystemDisplayed());
 
     }
 }

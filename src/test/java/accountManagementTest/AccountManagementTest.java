@@ -7,7 +7,7 @@ public class AccountManagementTest extends AbstractParentTest {
 
     @Test
     public void changeNameTest() {
-        String expectedFirstName = "Alice";
+        String expectedFirstName = "Clementine";
         String expectedLastName = "Letto";
         loginPage.logInSystemWithValidCredentials(adminLogin, adminPassword);
         homePage.clickAccountManagement();
@@ -15,6 +15,11 @@ public class AccountManagementTest extends AbstractParentTest {
         accountManagementPage.changeLastName(expectedLastName);
         accountManagementPage.clickSaveButton();
         checkExpectedResult("The name haven't changed", accountManagementPage.checkTheName(expectedFirstName, expectedLastName));
+
+        //return to old name
+        accountManagementPage.changeFirstName("Anastasiya");
+        accountManagementPage.changeLastName("Akinfiieva");
+        accountManagementPage.clickSaveButton();
     }
 
     @Test
@@ -31,5 +36,11 @@ public class AccountManagementTest extends AbstractParentTest {
         accountManagementPage.confirmNewPassword(newPassword);
         accountManagementPage.clickChangePassword();
         checkExpectedResult("Changes haven't saved",accountManagementPage.ifMessageAppeared());
+
+        //return to old password:
+        accountManagementPage.enterOldPassWord(newPassword);
+        accountManagementPage.enterNewPassword(oldPassword);
+        accountManagementPage.confirmNewPassword(oldPassword);
+        accountManagementPage.clickChangePassword();
     }
 }

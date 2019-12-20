@@ -12,7 +12,7 @@ public class NewUserPage extends ParentPage {
     private WebElement rolesTab;
     @FindBy(xpath = ".//label//i[@class='ios-checkbox-item ios-contrast']")
     private WebElement adminRoleSwitcher;
-    @FindBy(xpath = ".//div/input[@class='confirmButton']")
+    @FindBy(xpath = ".//div[@class='form-group']//div//input[@class='confirmButton']")
     private WebElement saveButton;
 
     public NewUserPage(WebDriver webDriver) {
@@ -37,6 +37,10 @@ public class NewUserPage extends ParentPage {
 
     public void switchToPreviousTab(){
         actionsWithWebElements.switchToPreviousTab();
+    }
+
+    public boolean ifConfirmationButtonDisappeared() {
+        return actionsWithWebElements.isElementNotDisplayed(confirmEmailButton);
     }
 }
 

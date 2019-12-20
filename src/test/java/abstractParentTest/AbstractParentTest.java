@@ -23,7 +23,7 @@ public class AbstractParentTest {
     protected String adminLogin = "clementine.letto@gmail.com";
     protected String adminPassword = "17uipAeRw";
     protected final String newUserEmail = "testuser" + Utils.getDateFormated()+"@gmail.com";
-    protected final String newRegisterUserEmail = "earl.greeeey."+Utils.getDateFormated()+"@gmail.com";
+    protected final String newRegisterUserEmail = "register.new.user.test"+Utils.getDateFormated()+"@gmail.com";
 
     @Before
     public void setUp() {

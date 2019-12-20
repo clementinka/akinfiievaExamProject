@@ -13,6 +13,8 @@ public class HomePage extends ParentPage {
     private WebElement defaultGroup;
     @FindBy (xpath = ".//a[@id='link-settings']")
     private WebElement accountManagementButton;
+    @FindBy (xpath = ".//div[@id='mainDiv']//h2[@class='cabinetLabel']")
+    private WebElement greetingsMessage;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver,"Home/Cabinet");
@@ -32,5 +34,9 @@ public class HomePage extends ParentPage {
 
     public void clickAccountManagement() {
         actionsWithWebElements.clickOnElemenet(accountManagementButton);
+    }
+
+    public boolean areGreetingDisplayed() {
+        return actionsWithWebElements.isElementDisplayed(greetingsMessage);
     }
 }
