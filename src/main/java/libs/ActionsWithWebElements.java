@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -85,7 +86,14 @@ public class ActionsWithWebElements {
         } catch (Exception e) {
             logger.info("Is element displayed -> false");
             return false;
+        }
+    }
 
+    public boolean isElementDisplayed(String locator) {
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e) {
+            return false;
         }
     }
 

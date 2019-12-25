@@ -5,10 +5,10 @@ import org.junit.Test;
 
 public class LoginTest extends AbstractParentTest {
     @Test
-    public void validLogin() {
+    public void validAdminLogin() {
         loginPage.openPage();
-        loginPage.enterLogin("clementine.letto@gmail.com");
-        loginPage.enterPassword("17uipAeRw");
+        loginPage.enterLogin(validAdminLogin);
+        loginPage.enterPassword(validAdminPassword);
         loginPage.clickLogInButton();
         checkExpectedResult("Management system is not present", homePage.ifManagementSystemDisplayed());
     }
@@ -18,6 +18,6 @@ public class LoginTest extends AbstractParentTest {
         loginPage.enterLogin("cleclementine.letto@gmail.com");
         loginPage.enterPassword("17uipAeRw");
         loginPage.clickLogInButton();
-        checkExpectedResult("Logged in system with wrong credentials", homePage.areGreetingDisplayed());
+        checkExpectedResult("Logged in system with wrong credentials", !homePage.areGreetingDisplayed());
     }
 }

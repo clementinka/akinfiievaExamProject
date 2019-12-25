@@ -7,7 +7,7 @@ public class AddNewUserTest extends AbstractParentTest {
 
     @Test
     public void inviteNewUser() {
-        loginPage.logInSystemWithValidCredentials(adminLogin, adminPassword);
+        loginPage.fillLoginAndPassAndSubmit(validAdminLogin, validAdminPassword);
         homePage.clickOnManagementButton();
         adminDashboardPage.clickUsers();
         usersPage.clickAddNewUserButton();
@@ -20,8 +20,12 @@ public class AddNewUserTest extends AbstractParentTest {
 
     @Test
     public void confirmNewUser() {
-        loginPage.logInSystemWithValidCredentials(adminLogin, adminPassword);
+        loginPage.fillLoginAndPassAndSubmit(validAdminLogin, validAdminPassword);
         homePage.clickOnManagementButton();
+        adminDashboardPage.clickUsers();
+        usersPage.clickAddNewUserButton();
+        createUserPage.typeUserEmail(newUserEmail);
+        createUserPage.clickSubmitButton();
         adminDashboardPage.clickUsers();
         usersPage.enterNewUserEmail(newUserEmail);
         usersPage.clickSearchButton();

@@ -33,8 +33,7 @@ public class UsersPage extends ParentPage {
     }
 
     public boolean ifNewUserAppeared(String newUserEmail) {
-        WebElement newUser = webDriver.findElement(By.xpath(".//*[contains(text(),'" + newUserEmail + "')]"));
-        return actionsWithWebElements.isElementDisplayed(newUser);
+        return actionsWithWebElements.isElementDisplayed(".//*[contains(text(),'" + newUserEmail + "')]");
     }
 
     public void enterNewUserEmail(String newUserEmail) {

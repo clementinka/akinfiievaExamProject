@@ -14,6 +14,10 @@ public class NewUserPage extends ParentPage {
     private WebElement adminRoleSwitcher;
     @FindBy(xpath = ".//div[@class='form-group']//div//input[@class='confirmButton']")
     private WebElement saveButton;
+    @FindBy(xpath = ".//li[@class='has-children account']//a")
+    private WebElement accountName;
+    @FindBy(xpath = ".//button[@class='logOff']")
+    private WebElement logOutButton;
 
     public NewUserPage(WebDriver webDriver) {
         super(webDriver, "Users/Edit?Id=ac1c3bec-c4b0-493a-8be0-8421351a6936");
@@ -41,6 +45,11 @@ public class NewUserPage extends ParentPage {
 
     public boolean ifConfirmationButtonDisappeared() {
         return actionsWithWebElements.isElementNotDisplayed(confirmEmailButton);
+    }
+
+    public void clickLogOutButton() {
+        actionsWithWebElements.clickOnElemenet(accountName);
+        actionsWithWebElements.clickOnElemenet(logOutButton);
     }
 }
 

@@ -16,11 +16,7 @@ public class RegisterNewUserTest extends AbstractParentTest {
         registerPage.confirmPassword("12345678");
         registerPage.clickSubmitButton();
         checkExpectedResult("Button submit doesn't work",registerPage.ifMessageAppeared());
-    }
-    @Test
-    public void enterWithNewCredentials(){
         loginPage.openPage();
-        loginPage.clickLogInButton();
         loginPage.enterLogin(newRegisterUserEmail);
         loginPage.enterPassword("12345678");
         loginPage.clickLogInButton();

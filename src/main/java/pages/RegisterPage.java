@@ -22,6 +22,10 @@ public class RegisterPage extends ParentPage {
     private WebElement submitButton;
     @FindBy(xpath = ".//body/main[@class='page']/div[@id='mainDiv']/h3")
     private WebElement message;
+    @FindBy(xpath = ".//li[@class='has-children account']//a")
+    private WebElement accountName;
+    @FindBy(xpath = ".//button[@class='logOff']")
+    private WebElement logOutButton;
 
     public RegisterPage(WebDriver webDriver) {
         super(webDriver, "Account/Register?returnurl=%2F");
@@ -53,5 +57,9 @@ public class RegisterPage extends ParentPage {
 
     public boolean ifMessageAppeared() {
         return actionsWithWebElements.isElementDisplayed(message);
+    }
+    public void clickLogOutButton() {
+        actionsWithWebElements.clickOnElemenet(accountName);
+        actionsWithWebElements.clickOnElemenet(logOutButton);
     }
 }

@@ -20,10 +20,10 @@ public class AbstractParentTest {
     protected CreateUserPage createUserPage;
     protected NewUserPage newUserPage;
     protected RegisterPage registerPage;
-    protected String adminLogin = "clementine.letto@gmail.com";
-    protected String adminPassword = "17uipAeRw";
+    protected String validAdminLogin = "clementine.letto@gmail.com";
+    protected String validAdminPassword = "17uipAeRw";
     protected final String newUserEmail = "testuser" + Utils.getDateFormated()+"@gmail.com";
-    protected final String newRegisterUserEmail = "register.new.user.test"+Utils.getDateFormated()+"@gmail.com";
+    protected final String newRegisterUserEmail = "register.new.user.test2"+Utils.getDateFormated()+"@gmail.com";
 
     @Before
     public void setUp() {

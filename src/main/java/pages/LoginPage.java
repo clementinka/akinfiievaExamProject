@@ -42,7 +42,7 @@ public class LoginPage extends ParentPage {
         actionsWithWebElements.clickOnElemenet(logInButton);
     }
 
-    public void logInSystemWithValidCredentials(String login, String password) {
+    public void fillLoginAndPassAndSubmit(String login, String password) {
         openPage();
         enterLogin(login);
         enterPassword(password);
@@ -51,12 +51,5 @@ public class LoginPage extends ParentPage {
 
     public void clickRegisterUser() {
         actionsWithWebElements.clickOnElemenet(registrationButton);
-    }
-
-    public void logInWithValidUserCredentials(String userLogin, String userPassword) {
-        openPage();
-        enterLogin(userLogin);
-        enterPassword(userPassword);
-        clickLogInButton();
     }
 }
